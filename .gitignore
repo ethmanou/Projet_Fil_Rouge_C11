@@ -1,0 +1,7 @@
+# Fichiers binaires
+*.exe
+*.out
+
+# Fichiers générés par le compilateur C++
+*.o
+*.obj
