@@ -5,12 +5,14 @@
 #include <string>
 
 class Point {
-public:
-    int x, y;
 
+    int x, y;
+public:
     Point(int x, int y);
 
     std::string toString() const;
+    int getX();
+    int getY();
 };
 
 #endif // POINT_H

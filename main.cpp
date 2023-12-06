@@ -1,6 +1,6 @@
 // main.cpp
-#include "Rectangle.h"
-#include "Cercle.h"
+#include "Rectangle.hpp"
+#include "Cercle.hpp"
 #include <iostream>
 
 int main() {
