@@ -3,10 +3,10 @@ CFLAGS = -std=c++11
 
 all: main
 
-main: main.o Rectangle.o Cercle.o Point.o 
-	$(CC) $(CFLAGS) -o main main.o Rectangle.o Cercle.o Point.o
+main: main.o Rectangle.o Cercle.o Point.o List.o
+	$(CC) $(CFLAGS) -o main main.o Rectangle.o Cercle.o Point.o List.o
 
-main.o: main.cpp Rectangle.hpp Cercle.hpp  
+main.o: main.cpp Rectangle.hpp Cercle.hpp List.hpp
 	$(CC) $(CFLAGS) -c main.cpp
 
 
@@ -16,11 +16,14 @@ Rectangle.o: Rectangle.cpp Rectangle.hpp Point.hpp
 Cercle.o: Cercle.cpp Cercle.hpp Point.hpp 
 	$(CC) $(CFLAGS) -c Cercle.cpp
 
+List.o: List.cpp List.hpp Cercle.hpp Rectangle.hpp 
+	$(CC) $(CFLAGS) -c List.cpp
+
 
 Point.o: Point.cpp Point.hpp 
 	$(CC) $(CFLAGS) -c Point.cpp
 
 clean: 
-	rm -f main main.o Rectangle.o Cercle.o Point.o
+	rm -f main *.o
 
     

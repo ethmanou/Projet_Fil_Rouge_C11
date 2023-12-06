@@ -7,8 +7,9 @@
 
 class Rectangle {
 
-    int x, y, w, h;
+    int x, y, w, h , ordre;
 public:
+    Rectangle();
     Rectangle(int x, int y, int w, int h);
 
     Rectangle(Point topLeft, int w, int h);
@@ -18,6 +19,7 @@ public:
     int getY();
     int getW();
     int getH();
+    void setOrdre(int );
 };
 
 #endif // RECTANGLE_H

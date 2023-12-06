@@ -1,6 +1,8 @@
 // Rectangle.cpp
 #include "Rectangle.hpp"
 
+Rectangle::Rectangle(){x=0 ; y=0 ; w=0 ; h=0 ;}
+
 Rectangle::Rectangle(int x, int y, int w, int h) : x(x), y(y), w(w), h(h) {}
 
 Rectangle::Rectangle(Point topLeft, int w, int h) : x(topLeft.getX()), y(topLeft.getY()), w(w), h(h) {}
@@ -26,3 +28,7 @@ int Rectangle::getW(){
 int Rectangle::getH(){
     return h;
 } 
+
+void Rectangle::setOrdre(int d0){
+    ordre = d0;
+}
