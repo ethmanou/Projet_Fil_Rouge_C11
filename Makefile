@@ -21,6 +21,7 @@ build/%.o: %.cpp
 
 clean:
 	rm -rf build core *.gch
+	rm cpp4
 
 catch.hpp:
 	wget https://raw.githubusercontent.com/catchorg/Catch2/v2.x/single_include/catch2/catch.hpp

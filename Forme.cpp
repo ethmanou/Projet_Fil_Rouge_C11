@@ -7,9 +7,11 @@ Forme::Forme(){
     id_ = prochainId_;
     prochainId_++;
     couleur = COULEURS::BLEU;
+    w=0;
+    h=0;
 }
 
-Forme::Forme(Point point, COULEURS couleur) : id_(prochainId_), couleur(couleur) , point(point) {
+Forme::Forme(Point point, COULEURS couleur) : id_(prochainId_), couleur(couleur) , point(point) , w(0) , h(0){
     prochainId_++;
 }
 

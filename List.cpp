@@ -4,14 +4,14 @@
 
 
 Liste::Liste() : nb_c(0), nb_r(0), compteur(0) {
-        // Initialisation de la liste...
+        
     }
 
 Liste::~Liste(){};
 
 int Liste::getCompteur() const {
         return compteur;
-    }
+}
 
 void Liste::ajouterCercle(Cercle * nouveauCercle) {
         //Cercle* nouveauCercle = new Cercle();
@@ -19,7 +19,7 @@ void Liste::ajouterCercle(Cercle * nouveauCercle) {
         nb_c++;
         compteur++;
         nouveauCercle->setOrdre(0);
-    }
+}
 
 
 void Liste:: ajouterRectangle(Rectangle *  nouveauRectangle) {
@@ -46,3 +46,39 @@ std::string Liste::toString() const {
 
         
     }
+
+
+
+
+Groupe::Groupe(): point(0, 0) , w(0) , h(0) , compteur(0){} 
+
+
+void Groupe::ajouterForme(Forme * forme){
+    formes.push_back(forme);
+    calculerBoiteEnglobante();
+    mettreAJourBoiteEnglobante(forme);
+}
+
+void Groupe::supprimerForme(Frome * frome){
+    auto = std::find(formes.begin() , formes.end() , frome);
+
+    if(auto != formes.end()){
+        formes.erase(auto);
+    }
+    else{
+        std::cout << "l'element n'existe pas! " << std::endl;
+    }  
+}
+
+void Groupe::calculerBoiteEnglobante(){
+    compteur++;
+} 
+
+void Groupe::mettreAJourBoiteEnglobante(Forme * forme){
+    if(frome.getLargeur() > w){
+        w= frome.getLargeur();
+    } 
+    if(frome.getHauteur() > h){
+        h = frome.getHauteur();
+    } 
+} 

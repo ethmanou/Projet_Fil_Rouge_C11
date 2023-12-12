@@ -8,7 +8,7 @@ enum class COULEURS {
     NOIR, BLANC , JAUNE , BLEU , ROUGE , VERT
 };
 
-class Forme {
+class Forme{
 private:
     static int prochainId_ ;
 
@@ -24,7 +24,7 @@ public:
     Forme(Point , COULEURS );
     virtual ~Forme() = default;
 
-    virtual void afficher() const = 0;
+    //virtual void afficher() const = 0;
 
     static int prochainId();
     int getId();
