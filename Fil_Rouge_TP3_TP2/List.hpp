@@ -4,7 +4,8 @@
 
 #include <vector>
 #include <string>
-#include "Forme.hpp"
+#include "Rectangle.hpp"
+#include "Cercle.hpp"
 
 class Liste {
 public:
