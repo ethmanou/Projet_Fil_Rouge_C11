@@ -2,7 +2,7 @@
 #include "Cercle.hpp"
 
 Cercle::Cercle(){
-    x=0; y=0 ; w=0 ; h = 0;
+    x=0; y=0 ; w=0 ; h = 0 , r=0;
 }
 
 Cercle::Cercle(int x, int y, int w, int h) : x(x), y(y), w(w), h(h) {}
@@ -23,14 +23,22 @@ int Cercle::getY(){
 } 
 
 
-int Cercle::getW(){
+int Cercle::getLargeur(){
     return w;
 } 
 
-int Cercle::getH(){
+int Cercle::getHauteur(){
     return h;
 } 
 
 void Cercle::setOrdre(int d0){
     ordre = d0;
+}
+
+int Cercle::getRayon(){
+    return r;
+}
+
+void Cercle::setRayon(int dr){
+    r=dr;
 }

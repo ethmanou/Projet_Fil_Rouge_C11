@@ -5,6 +5,3 @@
 # Fichiers générés par le compilateur C++
 *.o
 *.obj
-
-# Executable 
-main

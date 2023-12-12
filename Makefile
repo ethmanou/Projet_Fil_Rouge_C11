@@ -1,29 +1,28 @@
-CC = g++
-CFLAGS = -std=c++11
+SRC=Cercle.cpp Forme.cpp Point.cpp Rectangle.cpp tests_catch.cpp main_catch.cpp
+#SRC=$(wildcard *.cpp)  
+CXX=g++
+EXE=cpp4
 
-all: main
+#decommentez le flag std avec clang++ sous mac m1
+CXXFLAGS+=-Wall -Wextra -MMD -g -O2 #-std=c++11
+LDFLAGS= #-lSDL
 
-main: main.o Rectangle.o Cercle.o Point.o List.o
-	$(CC) $(CFLAGS) -o main main.o Rectangle.o Cercle.o Point.o List.o
+OBJ=$(addprefix build/,$(SRC:.cpp=.o))
+DEP=$(addprefix build/,$(SRC:.cpp=.d))
 
-main.o: main.cpp Rectangle.hpp Cercle.hpp List.hpp
-	$(CC) $(CFLAGS) -c main.cpp
+all: catch.hpp $(EXE)
 
+$(EXE): $(OBJ)
+	$(CXX) -o $(EXE) $^ $(LDFLAGS)
 
-Rectangle.o: Rectangle.cpp Rectangle.hpp Point.hpp  
-	$(CC) $(CFLAGS) -c Rectangle.cpp
+build/%.o: %.cpp
+	@mkdir -p build
+	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
-Cercle.o: Cercle.cpp Cercle.hpp Point.hpp 
-	$(CC) $(CFLAGS) -c Cercle.cpp
+clean:
+	rm -rf build core *.gch
 
-List.o: List.cpp List.hpp Cercle.hpp Rectangle.hpp 
-	$(CC) $(CFLAGS) -c List.cpp
+catch.hpp:
+	wget https://raw.githubusercontent.com/catchorg/Catch2/v2.x/single_include/catch2/catch.hpp
 
-
-Point.o: Point.cpp Point.hpp 
-	$(CC) $(CFLAGS) -c Point.cpp
-
-clean: 
-	rm -f main *.o
-
-    
+-include $(DEP)

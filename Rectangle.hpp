@@ -3,9 +3,10 @@
 #define RECTANGLE_H
 
 #include "Point.hpp"
+#include "Forme.hpp"
 #include <string>
 
-class Rectangle {
+class Rectangle : public Forme {
 
     int x, y, w, h , ordre;
 public:
