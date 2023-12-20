@@ -35,6 +35,8 @@ public:
     void setCouleur(COULEURS );
     int getLargeur();
     int getHauteur();
+    virtual Forme * Clone() const;
+    virtual std::string toString() const ;
 };
 
 #endif

@@ -46,13 +46,16 @@ TEST_CASE("Compteur", "[Forme]") {
    // Pour être correct, ce test doit etre le premier sur Forme
    REQUIRE(0 == Forme::prochainId());
    Forme f1;
+   Forme * f2 = f1.Clone();
+   REQUIRE(1 == f2->getId());
    REQUIRE(0 == f1.getId());
-   REQUIRE(1 ==  Forme::prochainId());	
+   REQUIRE(2 ==  Forme::prochainId());	
    // Verification que la valeur n'est pas decrementee accidentellement.
    Forme *p = new Forme;
-   REQUIRE(1 == p->getId());
+   REQUIRE(2 == p->getId());
    delete p;
-   REQUIRE(2 == Forme::prochainId());	
+   delete f2;
+   REQUIRE(3 == Forme::prochainId());	
 }
 
 
@@ -112,8 +115,10 @@ TEST_CASE("BoiteEnglobante", "[Forme]") {
 TEST_CASE("Cercle", "[Cercle]") {
    int compteur = Forme::prochainId();
    Cercle c1;
+   Cercle * c3 = new Cercle();
+   Forme * c1_c = c3->Clone();
    Cercle c2(20,40,40, 20); 
-   
+   //REQUIRE(c1_c->toString() == "CERCLE 0 0 0 0");
    REQUIRE(c1.toString() == "CERCLE 0 0 0 0");
    REQUIRE(c2.toString() == "CERCLE 20 40 40 20");
 
@@ -123,5 +128,31 @@ TEST_CASE("Cercle", "[Cercle]") {
    REQUIRE(c2.getLargeur() == 40);
    REQUIRE(c2.getHauteur() == 20);  
 
-   REQUIRE(Forme::prochainId() == (compteur+2) ); 
+   REQUIRE(Forme::prochainId() == (compteur+3) ); 
+   delete c1_c;
+   delete c3;
 }
+
+TEST_CASE("Clone_Cercle", "[Forme avec Cercle]"){
+	Forme * m = new Cercle(20, 40 , 40 , 25);
+	Forme * m_c = m->Clone();
+
+	REQUIRE(m->toString() == "CERCLE 20 40 40 25");
+	REQUIRE(m_c->toString() == "CERCLE 20 40 40 25");
+
+	delete m;
+	delete m_c;
+
+} 
+
+
+TEST_CASE("Clone_Rectangle", "[Forme avec Rectangle]"){
+	Forme * m = new Rectangle(20, 40 , 40 , 25);
+	Forme * m_c = m->Clone();
+	REQUIRE(m_c->toString() == "RECTANGLE 20 40 40 25");
+	REQUIRE(m_c->toString() == "RECTANGLE 20 40 40 25");
+
+	delete m;
+	delete m_c;
+
+} 

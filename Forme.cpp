@@ -15,6 +15,11 @@ Forme::Forme(Point point, COULEURS couleur) : id_(prochainId_), couleur(couleur)
     prochainId_++;
 }
 
+Forme * Forme::Clone() const {
+    return new Forme(this->point , this->couleur);
+} 
+
+
 int Forme::prochainId() {
     return prochainId_;
 }
@@ -53,4 +58,8 @@ int Forme::getHauteur(){
 
 int Forme::getLargeur(){
     return w;
+}
+
+std::string Forme::toString() const {
+    return "Forme " + std::to_string(w) + " " + std::to_string(h);
 }

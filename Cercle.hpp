@@ -15,7 +15,7 @@ public:
     Cercle(Point center, int radius);
     Cercle();
 
-    std::string toString() const;
+    std::string toString() const override;
     int getX();
     int getY();
     int getLargeur();
@@ -23,6 +23,7 @@ public:
     void setOrdre(int );
     void setRayon(int );
     int getRayon();
+    virtual Forme * Clone() const override;
 };
 
 #endif // CERCLE_H

@@ -42,3 +42,9 @@ int Cercle::getRayon(){
 void Cercle::setRayon(int dr){
     r=dr;
 }
+
+
+Forme * Cercle::Clone() const {
+    return new Cercle(*this);
+} 
+

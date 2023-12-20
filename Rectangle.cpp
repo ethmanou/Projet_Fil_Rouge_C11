@@ -32,3 +32,7 @@ int Rectangle::getH(){
 void Rectangle::setOrdre(int d0){
     ordre = d0;
 }
+
+Forme * Rectangle::Clone() const {
+    return new Rectangle(*this);
+} 
